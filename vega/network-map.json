@@ -37,19 +37,19 @@
         "values": [
           {
             "type": "user",
-            "url": "http://192.1.250.21/working-person-128.png"
+            "url": "https://symbols.getvecta.com/stencil_37/54_working-person.6f92ee329f.svg"
           },
           {
             "type": "firewall",
-            "url": "http://192.1.250.21/firewall-128.png"
+            "url": "https://symbols.getvecta.com/stencil_37/10_firewall.fafa7966a4.svg"
           },
           {
             "type": "switch",
-            "url": "http://192.1.250.21/switch-128.png"
+            "url": "https://symbols.getvecta.com/stencil_37/9_switch.a8945b4320.svg"
           },
           {
             "type": "server",
-            "url": "http://192.1.250.21/server-128.png"
+            "url": "https://symbols.getvecta.com/stencil_37/4_server-2.83ad489226.svg"
           }
         ]
       },
@@ -115,7 +115,7 @@
             "hostname": "casb_cz_1.vega.network.map",
             "label": "CASB 1",
             "zone": "CentralZone", 
-            "url":"http://www.google.com"
+            "url": "http://www.google.com"
           },
           {
             "x": 40,
@@ -125,7 +125,7 @@
             "hostname": "casb_cz_2.vega.network.map",
             "label": "CASB 2",
             "zone": "CentralZone", 
-            "url":"http://www.google.com"
+            "url": "http://www.google.com"
           },
           {
             "x": 45,
@@ -135,7 +135,7 @@
             "hostname": "casb_cz_3.vega.network.map",
             "label": "CASB 3",
             "zone": "CentralZone", 
-            "url":"https://192.1.250.21:5601/app/dashboards#/view/2aeadd18-d0df-41ad-b960-9c88467b6956?_g=(refreshInterval%3A(pause%3A!t%2Cvalue%3A60000)%2Ctime%3A(from%3Anow-15m%2Cto%3Anow))"
+            "url": "http://www.google.com"
           },
           {
             "x": 50,
@@ -145,17 +145,17 @@
             "label": "Olfeo",
             "hostname": "olfeo.vega.network.map",
             "zone": "CentralZone", 
-            "url":"https://192.1.250.21:5601/app/dashboards#/view/fd64f8fd-c3ee-49b0-8908-30b01668a8d9?_g=(refreshInterval%3A(pause%3A!t%2Cvalue%3A60000)%2Ctime%3A(from%3Anow-15m%2Cto%3Anow))"
+            "url": "http://www.google.com"
           },
           {
             "x": 70,
             "y": 80,
             "type": "firewall",
-            "name": "firewall-dmz-1",
+            "name": "firewall_dmz_1",
             "label": "DMZ-IN",
-            "hostname": "firewall-dmz-1.vega.network.map",
+            "hostname": "firewall_dmz_1.vega.network.map",
             "zone": "DMZ", 
-            "url":"https://192.1.250.21:5601/app/dashboards#/view/40fa52b8-f238-426b-9083-0a77607a8c4e?_g=(refreshInterval:(pause:!t,value:60000),time:(from:now-15m,to:now))&_a=(filters:!(('$state':(store:appState),meta:(alias:!n,disabled:!f,index:'metrics-*',key:observer.ip,negate:!f,params:(query:'192.1.37.254'),type:phrase),query:(match_phrase:(observer.ip:'192.1.37.254')))))"
+            "url": "http://www.google.com"
           },
           {
             "x": 80,
@@ -166,67 +166,27 @@
             "hostname": "ISPT1-SW-PROD",
             "size": "L",
             "zone": "DMZ",
-            "url":"https://192.1.250.21:5601/app/dashboards#/view/7ee112ee-c335-4d4e-9ce3-6acdf9335eae"
+            "url": "http://www.google.com"
           },
           {
             "x": 90,
             "y": 80,
             "type": "firewall",
-            "name": "firewall-dmz-2",
+            "name": "firewall_dmz_2",
             "label": "DMZ-OUT",
-            "hostname": "firewall-dmz-2.vega.network.map",
+            "hostname": "firewall_dmz_2.vega.network.map",
             "zone": "DMZ", 
-            "url":"https://192.1.250.21:5601/app/r/s/5L1Cv"
+            "url": "http://www.google.com"
           },
           {
             "x": 70,
             "y": 50,
             "type": "server",
-            "name": "squid1",
-            "hostname": "dript-mmvllo01v.ispt1.ssii.cnmoi",
-            "label": "Squid 1",
+            "name": "squid",
+            "hostname": "squid.vega.network.map",
+            "label": "Squid",
             "zone": "DMZ", 
-            "url":"https://192.1.250.21:5601/app/dashboards#/view/098a5ae0-beee-478e-876a-3919efbee972?_g=(refreshInterval%3A(pause%3A!t%2Cvalue%3A60000)%2Ctime%3A(from%3Anow-15m%2Cto%3Anow))"
-          },
-          {
-            "x": 75,
-            "y": 50,
-            "type": "server",
-            "name": "squid2",
-            "hostname": "dript-mmvllo02v.ispt1.ssii.cnmoi",
-            "label": "2",
-            "zone": "DMZ", 
-            "url":"https://192.1.250.21:5601/app/dashboards#/view/098a5ae0-beee-478e-876a-3919efbee972?_g=(refreshInterval%3A(pause%3A!t%2Cvalue%3A60000)%2Ctime%3A(from%3Anow-15m%2Cto%3Anow))"
-          },
-          {
-            "x": 80,
-            "y": 50,
-            "type": "server",
-            "name": "squid3",
-            "hostname": "dript-mmvllo03v.ispt1.ssii.cnmoi",
-            "label": "3",
-            "zone": "DMZ", 
-            "url":"https://192.1.250.21:5601/app/dashboards#/view/098a5ae0-beee-478e-876a-3919efbee972?_g=(refreshInterval%3A(pause%3A!t%2Cvalue%3A60000)%2Ctime%3A(from%3Anow-15m%2Cto%3Anow))"
-          },
-          {
-            "x": 85,
-            "y": 50,
-            "type": "server",
-            "name": "squid4",
-            "hostname": "dript-mmvllo04p.ispt1.ssii.cnmoi",
-            "label": "4",
-            "zone": "DMZ", 
-            "url":"https://192.1.250.21:5601/app/dashboards#/view/098a5ae0-beee-478e-876a-3919efbee972?_g=(refreshInterval%3A(pause%3A!t%2Cvalue%3A60000)%2Ctime%3A(from%3Anow-15m%2Cto%3Anow))"
-          },
-          {
-            "x": 90,
-            "y": 50,
-            "type": "server",
-            "name": "squid5",
-            "hostname": "dript-mmvllo05p.ispt1.ssii.cnmoi",
-            "label": "5",
-            "zone": "DMZ", 
-            "url":"https://192.1.250.21:5601/app/dashboards#/view/098a5ae0-beee-478e-876a-3919efbee972?_g=(refreshInterval%3A(pause%3A!t%2Cvalue%3A60000)%2Ctime%3A(from%3Anow-15m%2Cto%3Anow))"
+            "url": "http://www.google.com"
           }
         ],
         "transform": [
@@ -237,7 +197,7 @@
             "key": "type",
             "fields": ["type"],
             "as": ["image"]
-          },
+           },
           {
             "type": "formula",
             "as": "size",
@@ -248,23 +208,19 @@
       {
         "name": "links",
         "values": [
-          {"start": "user", "end": "fw1"},
-          {"start": "fw1", "end": "sw1"},
-          {"start": "sw1", "end": "bluecoat_sg1"},
-          {"start": "sw1", "end": "bluecoat_sg2"},
-          {"start": "sw1", "end": "bluecoat_sg4"},
-          {"start": "sw1", "end": "bluecoat_cas1"},
-          {"start": "sw1", "end": "bluecoat_cas2"},
-          {"start": "sw1", "end": "bluecoat_cas3"},
-          {"start": "sw1", "end": "olfeo"},
-          {"start": "sw1", "end": "fw2"},
-          {"start": "fw2", "end": "sw2"},
-          {"start": "sw2", "end": "fw3"},
-          {"start": "sw2", "end": "squid1"},
-          {"start": "sw2", "end": "squid2"},
-          {"start": "sw2", "end": "squid3"},
-          {"start": "sw2", "end": "squid4"},
-          {"start": "sw2", "end": "squid5"}
+          {"start": "user", "end": "firewall_cz_1"},
+          {"start": "firewall_cz_1", "end": "switch_cz"},
+          {"start": "switch_cz", "end": "proxy_cz_1"},
+          {"start": "switch_cz", "end": "proxy_cz_2"},
+          {"start": "switch_cz", "end": "proxy_cz_3"},
+          {"start": "switch_cz", "end": "casb_cz_1"},
+          {"start": "switch_cz", "end": "casb_cz_2"},
+          {"start": "switch_cz", "end": "casb_cz_3"},
+          {"start": "switch_cz", "end": "olfeo"},
+          {"start": "switch_cz", "end": "firewall_dmz_1"},
+          {"start": "firewall_dmz_1", "end": "switch_dmz"},
+          {"start": "switch_dmz", "end": "firewall_dmz_2"},
+          {"start": "switch_dmz", "end": "squid"}
         ],
         "transform": [
           {
@@ -277,37 +233,6 @@
           {
             "type": "filter",
             "expr": "datum.start_pos && datum.end_pos"
-          }
-        ]
-      },
-      {
-        "name": "links_health",
-        "values": [
-          { "start": "fw1", "end": "sw1", "status": "OK" },
-          { "start": "sw1", "end": "bluecoat_sg1", "status": "OK" },
-          { "start": "sw1", "end": "bluecoat_cas", "status": "OK" },
-          { "start": "sw1", "end": "olfeo", "status": "OK" },
-          { "start": "sw1", "end": "fw2", "status": "OK" },
-          { "start": "fw2", "end": "sw2", "status": "OK" },
-          { "start": "sw2", "end": "fw3", "status": "KO" },
-          { "start": "sw2", "end": "squid1", "status": "OK" }
-        ],
-        "transform": [
-          {
-            "type": "lookup",
-            "from": "image_positions",
-            "key": "name",
-            "fields": ["start", "end"],
-            "as": ["start_pos", "end_pos"]
-          },
-          {
-            "type": "filter",
-            "expr": "datum.start_pos && datum.end_pos"
-          },
-          {
-            "type": "formula",
-            "as": "color",
-            "expr": "datum.status === 'OK' ? 'green' : 'red'"
           }
         ]
       },
@@ -547,22 +472,6 @@
             "strokeDash": {"value": [4, 4]},
             "strokeWidth": {"value": 2},
             "opacity": {"value": 0.2}
-          }
-        }
-      },
-      {
-        "type": "rule",
-        "from": {"data": "links_health"},
-        "encode": {
-          "enter": {
-            "x": {"scale": "xscale", "field": "start_pos.x"},
-            "y": {"scale": "yscale", "field": "start_pos.y"},
-            "x2": {"scale": "xscale", "field": "end_pos.x"},
-            "y2": {"scale": "yscale", "field": "end_pos.y"},
-            "stroke": {"field": "color"},
-            "strokeDash": {"value": [4, 4]},
-            "strokeWidth": {"value": 2},
-            "opacity": {"value": 0.4}
           }
         }
       },
