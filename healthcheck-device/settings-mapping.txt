@@ -1,0 +1,195 @@
+PUT healthcheck-device
+{
+  "mappings": {
+    "properties": {
+      "@timestamp": {
+        "type": "date"
+      },
+      "_temp": {
+        "properties": {
+          "cpu_alert": {
+            "type": "float"
+          },
+          "cpu_hot": {
+            "type": "float"
+          },
+          "cpu_warn": {
+            "type": "float"
+          },
+          "disk_alert": {
+            "type": "float"
+          },
+          "disk_warn": {
+            "type": "float"
+          },
+          "memory_alert": {
+            "type": "float"
+          },
+          "memory_warn": {
+            "type": "float"
+          }
+        }
+      },
+      "healthcheck": {
+        "properties": {
+          "cpu": {
+            "properties": {
+              "status": {
+                "type": "keyword"
+              },
+              "status_int": {
+                "type": "integer"
+              }
+            }
+          },
+          "memory": {
+            "properties": {
+              "status": {
+                "type": "keyword"
+              },
+              "status_int": {
+                "type": "integer"
+              }
+            }
+          },
+          "status": {
+            "type": "keyword"
+          },
+          "status_int": {
+            "type": "integer"
+          },
+          "storage": {
+            "properties": {
+              "disk": {
+                "properties": {
+                  "status": {
+                    "type": "keyword"
+                  },
+                  "status_int": {
+                    "type": "integer"
+                  }
+                }
+              },
+              "partition": {
+                "properties": {
+                  "status": {
+                    "type": "keyword"
+                  },
+                  "status_int": {
+                    "type": "integer"
+                  }
+                }
+              },
+              "status": {
+                "type": "keyword"
+              },
+              "status_int": {
+                "type": "integer"
+              }
+            }
+          }
+        }
+      },
+      "host": {
+        "properties": {
+          "name": {
+            "type": "keyword"
+          }
+        }
+      },
+      "system": {
+        "properties": {
+          "cpu": {
+            "properties": {
+              "total": {
+                "properties": {
+                  "norm": {
+                    "properties": {
+                      "pct": {
+                        "properties": {
+                          "avg": {
+                            "type": "double"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "filesystem": {
+            "properties": {
+              "used": {
+                "properties": {
+                  "pct": {
+                    "properties": {
+                      "max": {
+                        "type": "float"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "fsstat": {
+            "properties": {
+              "total_size": {
+                "properties": {
+                  "total": {
+                    "properties": {
+                      "max": {
+                        "type": "float"
+                      },
+                      "sum": {
+                        "type": "long"
+                      }
+                    }
+                  },
+                  "used": {
+                    "properties": {
+                      "max": {
+                        "type": "long"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "memory": {
+            "properties": {
+              "actual": {
+                "properties": {
+                  "used": {
+                    "properties": {
+                      "pct": {
+                        "properties": {
+                          "avg": {
+                            "type": "double"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "top_metrics": {
+        "properties": {
+          "zone": {
+            "properties": {
+              "name": {
+                "type": "keyword"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
