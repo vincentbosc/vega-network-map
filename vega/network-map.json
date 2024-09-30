@@ -64,7 +64,8 @@
             "name": "firewall_cz_1",
             "label": "CentralZone-IN",
             "hostname": "firewall_cz_1.vega.network.map",
-            "zone": "Central Zone"
+            "zone": "Central Zone",
+            "url": "https://en.wikipedia.org/wiki/Firewall_(computing)"
           },
           {
             "x": 40,
@@ -155,7 +156,7 @@
             "label": "DMZ-IN",
             "hostname": "firewall_dmz_1.vega.network.map",
             "zone": "DMZ",
-            "url": "http://www.google.com"
+            "url": "https://en.wikipedia.org/wiki/Firewall_(computing)"
           },
           {
             "x": 80,
@@ -163,7 +164,7 @@
             "type": "switch",
             "name": "switch_dmz",
             "label": "Switch DMZ",
-            "hostname": "ISPT1-SW-PROD",
+            "hostname": "switch_dmz.vega.network.map",
             "size": "L",
             "zone": "DMZ",
             "url": "http://www.google.com"
@@ -176,7 +177,7 @@
             "label": "DMZ-OUT",
             "hostname": "firewall_dmz_2.vega.network.map",
             "zone": "DMZ",
-            "url": "http://www.google.com"
+            "url": "https://en.wikipedia.org/wiki/Firewall_(computing)"
           },
           {
             "x": 70,
@@ -301,6 +302,14 @@
         "source": "health",
         "transform": [
           {
+            "type": "filter",
+            "expr": "datum._source.healthcheck != null && datum._source.healthcheck.cpu != null"
+          },
+          {
+            "type": "filter",
+            "expr": "datum._source.system != null && datum._source.system.cpu != null"
+          },
+          {
             "type": "formula",
             "as": "tooltip",
             "expr": "'cpu : ' + format(datum._source.system.cpu.total.norm.pct.avg * 100, '.0f') + '%'"
@@ -332,6 +341,14 @@
         "source": "health",
         "transform": [
           {
+            "type": "filter",
+            "expr": "datum._source.healthcheck != null && datum._source.healthcheck.memory != null"
+          },
+          {
+            "type": "filter",
+            "expr": "datum._source.system != null && datum._source.system.memory != null"
+          },
+          {
             "type": "formula",
             "as": "tooltip",
             "expr": "'memory : ' + format(datum._source.system.memory.actual.used.pct.avg * 100, '.0f') + '%'"
@@ -362,6 +379,10 @@
         "name": "storage",
         "source": "health",
         "transform": [
+          {
+            "type": "filter",
+            "expr": "datum._source.healthcheck != null && datum._source.healthcheck.storage != null"
+          },
           {"type": "formula", "as": "tooltip", "expr": "'disque et partitions'"},
           {
             "type": "formula",
@@ -481,6 +502,7 @@
             "align": {"value": "center"},
             "baseline": {"value": "middle"},
             "href": {"field": "url"},
+            "tooltip": {"field": "hostname"},
             "cursor": {"signal": "datum.url ? 'pointer' : 'arrow'"}
           }
         }
