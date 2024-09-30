@@ -1,10 +1,11 @@
 {
     "$schema": "https://vega.github.io/schema/vega/v5.json",
-    "title": "ISPT",
+    "title": "Network Map",
     "signals": [
       {"name": "grid_opacity", "value": 0.1},
-      {"name": "image_size_L", "value": 100},
-      {"name": "image_size", "value": 60},
+      {"name": "device_image_size_L", "value": 80},
+      {"name": "device_image_size", "value": 50},
+      {"name": "device_text_margin_top", "value": 5},
       {"name": "zone_padding_x", "value": 5},
       {"name": "zone_padding_y", "value": 8},
       {"name": "zone_name_margin", "value": 2},
@@ -12,8 +13,7 @@
       {"name": "health_rect_height", "value": 1.5},
       {"name": "health_rect_padding", "value": 0.2},
       {"name": "health_rect_left_margin", "value": 2},
-      {"name": "health_rect_top_margin", "value": 4},
-      {"name": "text_y", "value": 5}
+      {"name": "health_rect_top_margin", "value": 4}
     ],
     "data": [
       {
@@ -54,7 +54,7 @@
         ]
       },
       {
-        "name": "image_positions",
+        "name": "devices",
         "values": [
           {"x": 8, "y": 80, "type": "user", "name": "user"},
           {
@@ -64,7 +64,7 @@
             "name": "firewall_cz_1",
             "label": "CentralZone-IN",
             "hostname": "firewall_cz_1.vega.network.map",
-            "zone": "CentralZone"
+            "zone": "Central Zone"
           },
           {
             "x": 40,
@@ -73,9 +73,9 @@
             "name": "switch_cz",
             "label": "Switch Central",
             "hostname": "switch_cz.vega.network.map",
-            "zone": "CentralZone",
+            "zone": "Central Zone",
             "size": "L",
-            "url":"http://www.google.com"
+            "url": "http://www.google.com"
           },
           {
             "x": 20,
@@ -84,7 +84,7 @@
             "name": "proxy_cz_1",
             "hostname": "proxy_cz_1.vega.network.map",
             "label": "Proxy 1",
-            "zone": "CentralZone", 
+            "zone": "Central Zone",
             "url": "http://www.google.com"
           },
           {
@@ -94,7 +94,7 @@
             "name": "proxy_cz_2",
             "hostname": "proxy_cz_2.vega.network.map",
             "label": "Proxy 2",
-            "zone": "CentralZone", 
+            "zone": "Central Zone",
             "url": "http://www.google.com"
           },
           {
@@ -104,7 +104,7 @@
             "name": "proxy_cz_3",
             "hostname": "proxy_cz_3.vega.network.map",
             "label": "Proxy 4",
-            "zone": "CentralZone", 
+            "zone": "Central Zone",
             "url": "http://www.google.com"
           },
           {
@@ -114,7 +114,7 @@
             "name": "casb_cz_1",
             "hostname": "casb_cz_1.vega.network.map",
             "label": "CASB 1",
-            "zone": "CentralZone", 
+            "zone": "Central Zone",
             "url": "http://www.google.com"
           },
           {
@@ -124,7 +124,7 @@
             "name": "casb_cz_2",
             "hostname": "casb_cz_2.vega.network.map",
             "label": "CASB 2",
-            "zone": "CentralZone", 
+            "zone": "Central Zone",
             "url": "http://www.google.com"
           },
           {
@@ -134,7 +134,7 @@
             "name": "casb_cz_3",
             "hostname": "casb_cz_3.vega.network.map",
             "label": "CASB 3",
-            "zone": "CentralZone", 
+            "zone": "Central Zone",
             "url": "http://www.google.com"
           },
           {
@@ -144,7 +144,7 @@
             "name": "olfeo",
             "label": "Olfeo",
             "hostname": "olfeo.vega.network.map",
-            "zone": "CentralZone", 
+            "zone": "Central Zone",
             "url": "http://www.google.com"
           },
           {
@@ -154,7 +154,7 @@
             "name": "firewall_dmz_1",
             "label": "DMZ-IN",
             "hostname": "firewall_dmz_1.vega.network.map",
-            "zone": "DMZ", 
+            "zone": "DMZ",
             "url": "http://www.google.com"
           },
           {
@@ -175,7 +175,7 @@
             "name": "firewall_dmz_2",
             "label": "DMZ-OUT",
             "hostname": "firewall_dmz_2.vega.network.map",
-            "zone": "DMZ", 
+            "zone": "DMZ",
             "url": "http://www.google.com"
           },
           {
@@ -185,23 +185,27 @@
             "name": "squid",
             "hostname": "squid.vega.network.map",
             "label": "Squid",
-            "zone": "DMZ", 
+            "zone": "DMZ",
             "url": "http://www.google.com"
           }
         ],
         "transform": [
-          {"type": "formula", "as": "label_y", "expr": "datum.y + text_y"},
+          {
+            "type": "formula",
+            "as": "label_y",
+            "expr": "datum.y + device_text_margin_top"
+          },
           {
             "type": "lookup",
             "from": "image_type",
             "key": "type",
             "fields": ["type"],
             "as": ["image"]
-           },
+          },
           {
             "type": "formula",
             "as": "size",
-            "expr": "datum.size == 'L' ? image_size_L : image_size"
+            "expr": "datum.size == 'L' ? device_image_size_L : device_image_size"
           }
         ]
       },
@@ -225,20 +229,17 @@
         "transform": [
           {
             "type": "lookup",
-            "from": "image_positions",
+            "from": "devices",
             "key": "name",
             "fields": ["start", "end"],
             "as": ["start_pos", "end_pos"]
           },
-          {
-            "type": "filter",
-            "expr": "datum.start_pos && datum.end_pos"
-          }
+          {"type": "filter", "expr": "datum.start_pos && datum.end_pos"}
         ]
       },
       {
         "name": "zones",
-        "source": "image_positions",
+        "source": "devices",
         "transform": [
           {"type": "filter", "expr": "datum.zone"},
           {
@@ -276,9 +277,7 @@
           "%context%": true,
           "%timefield%": "@timestamp",
           "index": "healthcheck-device",
-          "body": {
-            "size": 30
-          }
+          "body": {"size": 30}
         },
         "format": {"property": "hits.hits"},
         "transform": [
@@ -289,15 +288,12 @@
           },
           {
             "type": "lookup",
-            "from": "image_positions",
+            "from": "devices",
             "key": "hostname",
             "fields": ["hostname"],
             "as": ["device"]
           },
-          {
-            "type": "filter",
-            "expr": "datum.device"
-          }
+          {"type": "filter", "expr": "datum.device"}
         ]
       },
       {
@@ -366,11 +362,7 @@
         "name": "storage",
         "source": "health",
         "transform": [
-          {
-            "type": "formula",
-            "as": "tooltip",
-            "expr": "'disque et partitions'"
-          },
+          {"type": "formula", "as": "tooltip", "expr": "'disque et partitions'"},
           {
             "type": "formula",
             "as": "square_x",
@@ -477,7 +469,7 @@
       },
       {
         "type": "image",
-        "from": {"data": "image_positions"},
+        "from": {"data": "devices"},
         "encode": {
           "enter": {
             "url": {"field": "image.url"},
@@ -495,15 +487,15 @@
       },
       {
         "type": "text",
-        "from": {"data": "image_positions"},
+        "from": {"data": "devices"},
         "encode": {
           "enter": {
             "text": {"field": "label"},
             "x": {"scale": "xscale", "field": "x"},
             "y": {"scale": "yscale", "field": "label_y"},
             "opacity": {"value": 0.7},
-            "width": {"signal": "image_size"},
-            "height": {"signal": "image_size"},
+            "width": {"signal": "device_image_size"},
+            "height": {"signal": "device_image_size"},
             "align": {"value": "center"}
           }
         }
@@ -552,4 +544,3 @@
       }
     ]
   }
-  
