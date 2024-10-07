@@ -1,27 +1,27 @@
 POST _bulk?refresh=true
 { "index": { "_index": "healthcheck-device", "_id": "firewall_cz_1.vega.network.map" } }
-{"@timestamp":"2024-09-30","host":{"name":"firewall_cz_1.vega.network.map"},"healthcheck":{"cpu":{"status":"green"},"memory":{"status":"orange"}},"system":{"cpu":{"total":{"norm":{"pct":{"avg":0.24}}}},"memory":{"actual":{"used":{"pct":{"avg":0.77}}}}}}
+{"@timestamp":"2024-10-07","host":{"name":"firewall_cz_1.vega.network.map"},"healthcheck":{"cpu":{"status":"green"},"memory":{"status":"orange"}},"system":{"cpu":{"total":{"norm":{"pct":{"avg":0.24}}}},"memory":{"actual":{"used":{"pct":{"avg":0.77}}}}}}
 { "index": { "_index": "healthcheck-device", "_id": "switch_cz.vega.network.map" } }
-{"@timestamp":"2024-09-30","host":{"name":"switch_cz.vega.network.map"},"healthcheck":{"cpu":{"status":"green"},"memory":{"status":"green"}},"system":{"cpu":{"total":{"norm":{"pct":{"avg":0.15}}}},"memory":{"actual":{"used":{"pct":{"avg":0.33}}}}}}
-{ "index": { "_index": "healthcheck-device", "_id": "proxy_cz_1.vega.network.map" } }
-{"@timestamp":"2024-09-30","host":{"name":"proxy_cz_1.vega.network.map"},"healthcheck":{"cpu":{"status":"green"},"memory":{"status":"green"}},"system":{"cpu":{"total":{"norm":{"pct":{"avg":0.15}}}},"memory":{"actual":{"used":{"pct":{"avg":0.33}}}}}}
-{ "index": { "_index": "healthcheck-device", "_id": "proxy_cz_2.vega.network.map" } }
-{"@timestamp":"2024-09-30","host":{"name":"proxy_cz_2.vega.network.map"},"healthcheck":{"cpu":{"status":"green"},"memory":{"status":"green"}},"system":{"cpu":{"total":{"norm":{"pct":{"avg":0.15}}}},"memory":{"actual":{"used":{"pct":{"avg":0.33}}}}}}
-{ "index": { "_index": "healthcheck-device", "_id": "proxy_cz_3.vega.network.map" } }
-{"@timestamp":"2024-09-30","host":{"name":"proxy_cz_3.vega.network.map"},"healthcheck":{"cpu":{"status":"green"},"memory":{"status":"green"}},"system":{"cpu":{"total":{"norm":{"pct":{"avg":0.15}}}},"memory":{"actual":{"used":{"pct":{"avg":0.33}}}}}}
+{"@timestamp":"2024-10-07","host":{"name":"switch_cz.vega.network.map"},"healthcheck":{"cpu":{"status":"green"},"memory":{"status":"green"}},"system":{"cpu":{"total":{"norm":{"pct":{"avg":0.15}}}},"memory":{"actual":{"used":{"pct":{"avg":0.33}}}}}}
+{ "index": { "_index": "healthcheck-device", "_id": "server_cz_A.vega.network.map" } }
+{"@timestamp":"2024-10-07","host":{"name":"server_cz_A.vega.network.map"},"healthcheck":{"cpu":{"status":"green"},"memory":{"status":"green"}},"system":{"cpu":{"total":{"norm":{"pct":{"avg":0.15}}}},"memory":{"actual":{"used":{"pct":{"avg":0.33}}}}}}
+{ "index": { "_index": "healthcheck-device", "_id": "server_cz_B.vega.network.map" } }
+{"@timestamp":"2024-10-07","host":{"name":"server_cz_B.vega.network.map"},"healthcheck":{"cpu":{"status":"green"},"memory":{"status":"green"}},"system":{"cpu":{"total":{"norm":{"pct":{"avg":0.15}}}},"memory":{"actual":{"used":{"pct":{"avg":0.33}}}}}}
+{ "index": { "_index": "healthcheck-device", "_id": "server_cz_C.vega.network.map" } }
+{"@timestamp":"2024-10-07","host":{"name":"server_cz_C.vega.network.map"},"healthcheck":{"cpu":{"status":"green"},"memory":{"status":"green"}},"system":{"cpu":{"total":{"norm":{"pct":{"avg":0.15}}}},"memory":{"actual":{"used":{"pct":{"avg":0.33}}}}}}
 { "index": { "_index": "healthcheck-device", "_id": "casb_cz_1.vega.network.map" } }
-{"@timestamp":"2024-09-30","host":{"name":"casb_cz_1.vega.network.map"},"healthcheck":{"cpu":{"status":"green"},"memory":{"status":"green"}},"system":{"cpu":{"total":{"norm":{"pct":{"avg":0.15}}}},"memory":{"actual":{"used":{"pct":{"avg":0.33}}}}}}
+{"@timestamp":"2024-10-07","host":{"name":"casb_cz_1.vega.network.map"},"healthcheck":{"cpu":{"status":"green"},"memory":{"status":"green"}},"system":{"cpu":{"total":{"norm":{"pct":{"avg":0.15}}}},"memory":{"actual":{"used":{"pct":{"avg":0.33}}}}}}
 { "index": { "_index": "healthcheck-device", "_id": "casb_cz_2.vega.network.map" } }
-{"@timestamp":"2024-09-30","host":{"name":"casb_cz_2.vega.network.map"},"healthcheck":{"cpu":{"status":"green"},"memory":{"status":"green"}},"system":{"cpu":{"total":{"norm":{"pct":{"avg":0.15}}}},"memory":{"actual":{"used":{"pct":{"avg":0.33}}}}}}
+{"@timestamp":"2024-10-07","host":{"name":"casb_cz_2.vega.network.map"},"healthcheck":{"cpu":{"status":"green"},"memory":{"status":"green"}},"system":{"cpu":{"total":{"norm":{"pct":{"avg":0.15}}}},"memory":{"actual":{"used":{"pct":{"avg":0.33}}}}}}
 { "index": { "_index": "healthcheck-device", "_id": "casb_cz_3.vega.network.map" } }
-{"@timestamp":"2024-09-30","host":{"name":"casb_cz_3.vega.network.map"},"healthcheck":{"cpu":{"status":"green"},"memory":{"status":"green"}},"system":{"cpu":{"total":{"norm":{"pct":{"avg":0.15}}}},"memory":{"actual":{"used":{"pct":{"avg":0.33}}}}}}
-{ "index": { "_index": "healthcheck-device", "_id": "olfeo.vega.network.map" } }
-{"@timestamp":"2024-09-30","host":{"name":"olfeo.vega.network.map"},"healthcheck":{"cpu":{"status":"green"},"memory":{"status":"green"}},"system":{"cpu":{"total":{"norm":{"pct":{"avg":0.15}}}},"memory":{"actual":{"used":{"pct":{"avg":0.33}}}}}}
+{"@timestamp":"2024-10-07","host":{"name":"casb_cz_3.vega.network.map"},"healthcheck":{"cpu":{"status":"green"},"memory":{"status":"green"}},"system":{"cpu":{"total":{"norm":{"pct":{"avg":0.15}}}},"memory":{"actual":{"used":{"pct":{"avg":0.33}}}}}}
+{ "index": { "_index": "healthcheck-device", "_id": "server_cz_D.vega.network.map" } }
+{"@timestamp":"2024-10-07","host":{"name":"server_cz_D.vega.network.map"},"healthcheck":{"cpu":{"status":"green"},"memory":{"status":"green"}},"system":{"cpu":{"total":{"norm":{"pct":{"avg":0.15}}}},"memory":{"actual":{"used":{"pct":{"avg":0.33}}}}}}
 { "index": { "_index": "healthcheck-device", "_id": "firewall_dmz_1.vega.network.map" } }
-{"@timestamp":"2024-09-30","host":{"name":"firewall_dmz_1.vega.network.map"},"healthcheck":{"cpu":{"status":"green"},"memory":{"status":"green"}},"system":{"cpu":{"total":{"norm":{"pct":{"avg":0.15}}}},"memory":{"actual":{"used":{"pct":{"avg":0.33}}}}}}
+{"@timestamp":"2024-10-07","host":{"name":"firewall_dmz_1.vega.network.map"},"healthcheck":{"cpu":{"status":"green"},"memory":{"status":"green"}},"system":{"cpu":{"total":{"norm":{"pct":{"avg":0.15}}}},"memory":{"actual":{"used":{"pct":{"avg":0.33}}}}}}
 { "index": { "_index": "healthcheck-device", "_id": "switch_dmz.vega.network.map" } }
-{"@timestamp":"2024-09-30","host":{"name":"switch_dmz.vega.network.map"},"healthcheck":{"cpu":{"status":"green"},"memory":{"status":"green"}},"system":{"cpu":{"total":{"norm":{"pct":{"avg":0.15}}}},"memory":{"actual":{"used":{"pct":{"avg":0.33}}}}}}
+{"@timestamp":"2024-10-07","host":{"name":"switch_dmz.vega.network.map"},"healthcheck":{"cpu":{"status":"green"},"memory":{"status":"green"}},"system":{"cpu":{"total":{"norm":{"pct":{"avg":0.15}}}},"memory":{"actual":{"used":{"pct":{"avg":0.33}}}}}}
 { "index": { "_index": "healthcheck-device", "_id": "firewall_dmz_2.vega.network.map" } }
-{"@timestamp":"2024-09-30","host":{"name":"firewall_dmz_2.vega.network.map"},"healthcheck":{"cpu":{"status":"green"},"memory":{"status":"green"}},"system":{"cpu":{"total":{"norm":{"pct":{"avg":0.15}}}},"memory":{"actual":{"used":{"pct":{"avg":0.33}}}}}}
-{ "index": { "_index": "healthcheck-device", "_id": "squid.vega.network.map" } }
-{"@timestamp":"2024-09-30","host":{"name":"squid.vega.network.map"},"healthcheck":{"cpu":{"status":"red"},"memory":{"status":"red"}},"system":{"cpu":{"total":{"norm":{"pct":{"avg":0.95}}}},"memory":{"actual":{"used":{"pct":{"avg":0.93}}}}}}
+{"@timestamp":"2024-10-07","host":{"name":"firewall_dmz_2.vega.network.map"},"healthcheck":{"cpu":{"status":"green"},"memory":{"status":"green"}},"system":{"cpu":{"total":{"norm":{"pct":{"avg":0.15}}}},"memory":{"actual":{"used":{"pct":{"avg":0.33}}}}}}
+{ "index": { "_index": "healthcheck-device", "_id": "antivirus.vega.network.map" } }
+{"@timestamp":"2024-10-07","host":{"name":"antivirus.vega.network.map"},"healthcheck":{"cpu":{"status":"red"},"memory":{"status":"red"}},"system":{"cpu":{"total":{"norm":{"pct":{"avg":0.95}}}},"memory":{"actual":{"used":{"pct":{"avg":0.93}}}}}}

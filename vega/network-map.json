@@ -82,9 +82,9 @@
             "x": 20,
             "y": 60,
             "type": "server",
-            "name": "proxy_cz_1",
-            "hostname": "proxy_cz_1.vega.network.map",
-            "label": "Proxy 1",
+            "name": "server_cz_A",
+            "hostname": "server_cz_A.vega.network.map",
+            "label": "Server A",
             "zone": "Central Zone",
             "url": "http://www.google.com"
           },
@@ -92,9 +92,9 @@
             "x": 25,
             "y": 60,
             "type": "server",
-            "name": "proxy_cz_2",
-            "hostname": "proxy_cz_2.vega.network.map",
-            "label": "Proxy 2",
+            "name": "server_cz_B",
+            "hostname": "server_cz_B.vega.network.map",
+            "label": "Server B",
             "zone": "Central Zone",
             "url": "http://www.google.com"
           },
@@ -102,9 +102,9 @@
             "x": 30,
             "y": 60,
             "type": "server",
-            "name": "proxy_cz_3",
-            "hostname": "proxy_cz_3.vega.network.map",
-            "label": "Proxy 4",
+            "name": "server_cz_C",
+            "hostname": "server_cz_C.vega.network.map",
+            "label": "Server C",
             "zone": "Central Zone",
             "url": "http://www.google.com"
           },
@@ -142,9 +142,9 @@
             "x": 50,
             "y": 60,
             "type": "server",
-            "name": "olfeo",
-            "label": "Olfeo",
-            "hostname": "olfeo.vega.network.map",
+            "name": "server_cz_D",
+            "label": "Server D",
+            "hostname": "server_cz_D.vega.network.map",
             "zone": "Central Zone",
             "url": "http://www.google.com"
           },
@@ -183,9 +183,9 @@
             "x": 70,
             "y": 50,
             "type": "server",
-            "name": "squid",
-            "hostname": "squid.vega.network.map",
-            "label": "Squid",
+            "name": "antivirus",
+            "hostname": "antivirus.vega.network.map",
+            "label": "Antivirus",
             "zone": "DMZ",
             "url": "http://www.google.com"
           }
@@ -215,17 +215,17 @@
         "values": [
           {"start": "user", "end": "firewall_cz_1"},
           {"start": "firewall_cz_1", "end": "switch_cz"},
-          {"start": "switch_cz", "end": "proxy_cz_1"},
-          {"start": "switch_cz", "end": "proxy_cz_2"},
-          {"start": "switch_cz", "end": "proxy_cz_3"},
+          {"start": "switch_cz", "end": "server_cz_A"},
+          {"start": "switch_cz", "end": "server_cz_B"},
+          {"start": "switch_cz", "end": "server_cz_C"},
           {"start": "switch_cz", "end": "casb_cz_1"},
           {"start": "switch_cz", "end": "casb_cz_2"},
           {"start": "switch_cz", "end": "casb_cz_3"},
-          {"start": "switch_cz", "end": "olfeo"},
+          {"start": "switch_cz", "end": "server_cz_D"},
           {"start": "switch_cz", "end": "firewall_dmz_1"},
           {"start": "firewall_dmz_1", "end": "switch_dmz"},
           {"start": "switch_dmz", "end": "firewall_dmz_2"},
-          {"start": "switch_dmz", "end": "squid"}
+          {"start": "switch_dmz", "end": "antivirus"}
         ],
         "transform": [
           {
