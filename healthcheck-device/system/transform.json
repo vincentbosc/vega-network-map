@@ -1,0 +1,66 @@
+{
+    "id": "healthcheck-system",
+    "authorization": {
+      "roles": [
+        "superuser"
+      ]
+    },
+    "version": "10.0.0",
+    "create_time": 1728553595370,
+    "source": {
+      "index": [
+        "metrics-*"
+      ],
+      "query": {
+        "bool": {
+          "filter": [
+            {
+              "range": {
+                "@timestamp": {
+                  "gte": "now-5m/m",
+                  "lte": "now"
+                }
+              }
+            }
+          ]
+        }
+      }
+    },
+    "dest": {
+      "index": "healthcheck-device-system",
+      "pipeline": "healthcheck--device-system-pipeline"
+    },
+    "sync": {
+      "time": {
+        "field": "@timestamp",
+        "delay": "60s"
+      }
+    },
+    "pivot": {
+      "group_by": {
+        "host.name": {
+          "terms": {
+            "field": "host.name"
+          }
+        }
+      },
+      "aggregations": {
+        "system.cpu.total.norm.pct.avg": {
+          "avg": {
+            "field": "system.cpu.total.norm.pct"
+          }
+        },
+        "system.memory.actual.used.pct.avg": {
+          "avg": {
+            "field": "system.memory.actual.used.pct"
+          }
+        },
+        "@timestamp.max": {
+          "max": {
+            "field": "@timestamp"
+          }
+        }
+      }
+    },
+    "settings": {}
+  }

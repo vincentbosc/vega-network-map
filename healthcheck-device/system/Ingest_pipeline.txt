@@ -1,0 +1,96 @@
+PUT _ingest/pipeline/healthcheck-device-system-pipeline
+{
+  "processors": [
+    {
+      "script": {
+        "lang": "painless",
+        "source": """
+            ctx._temp = [:];
+            ctx._temp.cpu_warn = 0.6;
+            ctx._temp.cpu_alert = 0.8;
+            ctx._temp.memory_warn = 0.6;
+            ctx._temp.memory_alert = 0.8;
+        """
+      }
+    },
+    {
+      "rename": {
+        "field": "system.cpu.total.norm.pct.avg",
+        "target_field": "healthcheck.cpu.value"
+      }
+    },
+    {
+      "rename": {
+        "field": "system.memory.actual.used.pct.avg",
+        "target_field": "healthcheck.memory.value"
+      }
+    },
+    {
+      "set": {
+        "field": "healthcheck.cpu.status",
+        "value": "green",
+        "if": "ctx.healthcheck?.cpu != null"
+      }
+    },
+    {
+      "set": {
+        "field": "healthcheck.cpu.status",
+        "value": "orange",
+        "if": "ctx.healthcheck?.cpu?.value != null && ctx.healthcheck?.cpu?.value > ctx._temp.cpu_warn"
+      }
+    },
+    {
+      "set": {
+        "field": "healthcheck.cpu.status",
+        "value": "red",
+        "if": "ctx.healthcheck?.cpu?.value != null && ctx.healthcheck?.cpu?.value > ctx._temp.cpu_alert"
+      }
+    },
+    {
+      "set": {
+        "field": "healthcheck.memory.status",
+        "value": "green",
+        "if": "ctx.healthcheck?.memory != null"
+      }
+    },
+    {
+      "set": {
+        "field": "healthcheck.memory.status",
+        "value": "orange",
+        "if": "ctx.healthcheck?.memory?.value != null && ctx.healthcheck?.memory?.value > ctx._temp.memory_warn"
+      }
+    },
+    {
+      "set": {
+        "field": "healthcheck.memory.status",
+        "value": "red",
+        "if": "ctx.healthcheck?.memory?.value != null && ctx.healthcheck?.memory?.value > ctx._temp.memory_alert"
+      }
+    },
+    {
+      "rename": {
+        "field": "@timestamp.max",
+        "target_field": "_@timestamp"
+      }
+    },
+    {
+      "remove": {
+        "field": "@timestamp"
+      }
+    },
+    {
+      "rename": {
+        "field": "_@timestamp",
+        "target_field": "@timestamp"
+      }
+    },
+    {
+      "remove": {
+        "field": [
+          "system",
+          "_temp"
+        ]
+      }
+    }
+  ]
+}
