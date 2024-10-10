@@ -1,0 +1,47 @@
+PUT healthcheck-device-test
+{
+  "mappings": {
+    "properties": {
+      "@timestamp": {
+        "type": "date"
+      },
+      "healthcheck": {
+        "properties": {
+          "cpu": {
+            "properties": {
+              "status": {
+                "type": "keyword"
+              },
+              "status_int": {
+                "type": "integer"
+              },
+              "value": {
+                "type": "float"
+              }
+            }
+          },
+          "memory": {
+            "properties": {
+              "status": {
+                "type": "keyword"
+              },
+              "status_int": {
+                "type": "integer"
+              },
+              "value": {
+                "type": "float"
+              }
+            }
+          }
+        }
+      },
+      "host": {
+        "properties": {
+          "name": {
+            "type": "keyword"
+          }
+        }
+      }
+    }
+  }
+}

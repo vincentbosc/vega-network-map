@@ -1,568 +1,515 @@
 {
-    "$schema": "https://vega.github.io/schema/vega/v5.json",
-    "title": "Network Map",
-    "signals": [
-      {"name": "grid_opacity", "value": 0.1},
-      {"name": "device_image_size_L", "value": 80},
-      {"name": "device_image_size", "value": 50},
-      {"name": "device_text_margin_top", "value": 5},
-      {"name": "zone_padding_x", "value": 5},
-      {"name": "zone_padding_y", "value": 8},
-      {"name": "zone_name_margin", "value": 2},
-      {"name": "health_rect_width", "value": 1},
-      {"name": "health_rect_height", "value": 1.5},
-      {"name": "health_rect_padding", "value": 0.2},
-      {"name": "health_rect_left_margin", "value": 2},
-      {"name": "health_rect_top_margin", "value": 4}
-    ],
-    "data": [
-      {
-        "name": "gridlines",
-        "values": [
-          {"value": 0},
-          {"value": 10},
-          {"value": 20},
-          {"value": 30},
-          {"value": 40},
-          {"value": 50},
-          {"value": 60},
-          {"value": 70},
-          {"value": 80},
-          {"value": 90},
-          {"value": 100}
-        ]
-      },
-      {
-        "name": "image_type",
-        "values": [
-          {
-            "type": "user",
-            "url": "https://symbols.getvecta.com/stencil_37/54_working-person.6f92ee329f.svg"
-          },
-          {
-            "type": "firewall",
-            "url": "https://symbols.getvecta.com/stencil_37/10_firewall.fafa7966a4.svg"
-          },
-          {
-            "type": "switch",
-            "url": "https://symbols.getvecta.com/stencil_37/9_switch.a8945b4320.svg"
-          },
-          {
-            "type": "server",
-            "url": "https://symbols.getvecta.com/stencil_37/4_server-2.83ad489226.svg"
-          }
-        ]
-      },
-      {
-        "name": "devices",
-        "values": [
-          {"x": 8, "y": 80, "type": "user", "name": "user"},
-          {
-            "x": 20,
-            "y": 80,
-            "type": "firewall",
-            "name": "firewall_cz_1",
-            "label": "CentralZone-IN",
-            "hostname": "firewall_cz_1.vega.network.map",
-            "zone": "Central Zone",
-            "url": "https://en.wikipedia.org/wiki/Firewall_(computing)"
-          },
-          {
-            "x": 40,
-            "y": 80,
-            "type": "switch",
-            "name": "switch_cz",
-            "label": "Switch Central",
-            "hostname": "switch_cz.vega.network.map",
-            "zone": "Central Zone",
-            "size": "L",
-            "url": "http://www.google.com"
-          },
-          {
-            "x": 20,
-            "y": 60,
-            "type": "server",
-            "name": "server_cz_A",
-            "hostname": "server_cz_A.vega.network.map",
-            "label": "Server A",
-            "zone": "Central Zone",
-            "url": "http://www.google.com"
-          },
-          {
-            "x": 25,
-            "y": 60,
-            "type": "server",
-            "name": "server_cz_B",
-            "hostname": "server_cz_B.vega.network.map",
-            "label": "Server B",
-            "zone": "Central Zone",
-            "url": "http://www.google.com"
-          },
-          {
-            "x": 30,
-            "y": 60,
-            "type": "server",
-            "name": "server_cz_C",
-            "hostname": "server_cz_C.vega.network.map",
-            "label": "Server C",
-            "zone": "Central Zone",
-            "url": "http://www.google.com"
-          },
-          {
-            "x": 35,
-            "y": 40,
-            "type": "server",
-            "name": "casb_cz_1",
-            "hostname": "casb_cz_1.vega.network.map",
-            "label": "CASB 1",
-            "zone": "Central Zone",
-            "url": "http://www.google.com"
-          },
-          {
-            "x": 40,
-            "y": 40,
-            "type": "server",
-            "name": "casb_cz_2",
-            "hostname": "casb_cz_2.vega.network.map",
-            "label": "CASB 2",
-            "zone": "Central Zone",
-            "url": "http://www.google.com"
-          },
-          {
-            "x": 45,
-            "y": 40,
-            "type": "server",
-            "name": "casb_cz_3",
-            "hostname": "casb_cz_3.vega.network.map",
-            "label": "CASB 3",
-            "zone": "Central Zone",
-            "url": "http://www.google.com"
-          },
-          {
-            "x": 50,
-            "y": 60,
-            "type": "server",
-            "name": "server_cz_D",
-            "label": "Server D",
-            "hostname": "server_cz_D.vega.network.map",
-            "zone": "Central Zone",
-            "url": "http://www.google.com"
-          },
-          {
-            "x": 70,
-            "y": 80,
-            "type": "firewall",
-            "name": "firewall_dmz_1",
-            "label": "DMZ-IN",
-            "hostname": "firewall_dmz_1.vega.network.map",
-            "zone": "DMZ",
-            "url": "https://en.wikipedia.org/wiki/Firewall_(computing)"
-          },
-          {
-            "x": 80,
-            "y": 80,
-            "type": "switch",
-            "name": "switch_dmz",
-            "label": "Switch DMZ",
-            "hostname": "switch_dmz.vega.network.map",
-            "size": "L",
-            "zone": "DMZ",
-            "url": "http://www.google.com"
-          },
-          {
-            "x": 90,
-            "y": 80,
-            "type": "firewall",
-            "name": "firewall_dmz_2",
-            "label": "DMZ-OUT",
-            "hostname": "firewall_dmz_2.vega.network.map",
-            "zone": "DMZ",
-            "url": "https://en.wikipedia.org/wiki/Firewall_(computing)"
-          },
-          {
-            "x": 70,
-            "y": 50,
-            "type": "server",
-            "name": "antivirus",
-            "hostname": "antivirus.vega.network.map",
-            "label": "Antivirus",
-            "zone": "DMZ",
-            "url": "http://www.google.com"
-          }
-        ],
-        "transform": [
-          {
-            "type": "formula",
-            "as": "label_y",
-            "expr": "datum.y + device_text_margin_top"
-          },
-          {
-            "type": "lookup",
-            "from": "image_type",
-            "key": "type",
-            "fields": ["type"],
-            "as": ["image"]
-          },
-          {
-            "type": "formula",
-            "as": "size",
-            "expr": "datum.size == 'L' ? device_image_size_L : device_image_size"
-          }
-        ]
-      },
-      {
-        "name": "links",
-        "values": [
-          {"start": "user", "end": "firewall_cz_1"},
-          {"start": "firewall_cz_1", "end": "switch_cz"},
-          {"start": "switch_cz", "end": "server_cz_A"},
-          {"start": "switch_cz", "end": "server_cz_B"},
-          {"start": "switch_cz", "end": "server_cz_C"},
-          {"start": "switch_cz", "end": "casb_cz_1"},
-          {"start": "switch_cz", "end": "casb_cz_2"},
-          {"start": "switch_cz", "end": "casb_cz_3"},
-          {"start": "switch_cz", "end": "server_cz_D"},
-          {"start": "switch_cz", "end": "firewall_dmz_1"},
-          {"start": "firewall_dmz_1", "end": "switch_dmz"},
-          {"start": "switch_dmz", "end": "firewall_dmz_2"},
-          {"start": "switch_dmz", "end": "antivirus"}
-        ],
-        "transform": [
-          {
-            "type": "lookup",
-            "from": "devices",
-            "key": "name",
-            "fields": ["start", "end"],
-            "as": ["start_pos", "end_pos"]
-          },
-          {"type": "filter", "expr": "datum.start_pos && datum.end_pos"}
-        ]
-      },
-      {
-        "name": "zones",
-        "source": "devices",
-        "transform": [
-          {"type": "filter", "expr": "datum.zone"},
-          {
-            "type": "aggregate",
-            "groupby": ["zone"],
-            "fields": ["x", "x", "y", "y"],
-            "ops": ["min", "max", "min", "max"],
-            "as": ["min_x", "max_x", "min_y", "max_y"]
-          },
-          {
-            "type": "formula",
-            "as": "min_x",
-            "expr": "datum.min_x - zone_padding_x"
-          },
-          {
-            "type": "formula",
-            "as": "max_x",
-            "expr": "datum.max_x + zone_padding_x"
-          },
-          {
-            "type": "formula",
-            "as": "min_y",
-            "expr": "datum.min_y - zone_padding_y"
-          },
-          {
-            "type": "formula",
-            "as": "max_y",
-            "expr": "datum.max_y + zone_padding_y"
-          }
-        ]
-      },
-      {
-        "name": "health",
-        "url": {
-          "%context%": true,
-          "%timefield%": "@timestamp",
-          "index": "healthcheck-device",
-          "body": {"size": 30}
+  "$schema": "https://vega.github.io/schema/vega/v5.json",
+  "title": "Network Map",
+  "signals": [
+    {"name": "grid_opacity", "value": 0.1},
+    {"name": "device_image_size_L", "value": 80},
+    {"name": "device_image_size", "value": 50},
+    {"name": "device_text_margin_top", "value": 5},
+    {"name": "zone_padding_x", "value": 5},
+    {"name": "zone_padding_y", "value": 8},
+    {"name": "zone_name_margin", "value": 2},
+    {"name": "health_rect_width", "value": 1},
+    {"name": "health_rect_height", "value": 1.5},
+    {"name": "health_rect_padding", "value": 0.2},
+    {"name": "health_rect_left_margin", "value": 2},
+    {"name": "health_rect_top_margin", "value": 4}
+  ],
+  "data": [
+    {
+      "name": "gridlines",
+      "values": [
+        {"value": 0},
+        {"value": 10},
+        {"value": 20},
+        {"value": 30},
+        {"value": 40},
+        {"value": 50},
+        {"value": 60},
+        {"value": 70},
+        {"value": 80},
+        {"value": 90},
+        {"value": 100}
+      ]
+    },
+    {
+      "name": "image_type",
+      "values": [
+        {
+          "type": "user",
+          "url": "https://symbols.getvecta.com/stencil_37/54_working-person.6f92ee329f.svg"
         },
-        "format": {"property": "hits.hits"},
-        "transform": [
-          {
-            "type": "formula",
-            "as": "hostname",
-            "expr": "datum._source.host.name"
-          },
-          {
-            "type": "lookup",
-            "from": "devices",
-            "key": "hostname",
-            "fields": ["hostname"],
-            "as": ["device"]
-          },
-          {"type": "filter", "expr": "datum.device"}
-        ]
+        {
+          "type": "firewall",
+          "url": "https://symbols.getvecta.com/stencil_37/10_firewall.fafa7966a4.svg"
+        },
+        {
+          "type": "switch",
+          "url": "https://symbols.getvecta.com/stencil_37/9_switch.a8945b4320.svg"
+        },
+        {
+          "type": "server",
+          "url": "https://symbols.getvecta.com/stencil_37/4_server-2.83ad489226.svg"
+        }
+      ]
+    },
+    {
+      "name": "devices",
+      "values": [
+        {"x": 8, "y": 80, "type": "user", "name": "user"},
+        {
+          "x": 20,
+          "y": 80,
+          "type": "firewall",
+          "name": "firewall_cz_1",
+          "label": "CentralZone-IN",
+          "hostname": "firewall_cz_1.vega.network.map",
+          "zone": "Central Zone",
+          "url": "https://en.wikipedia.org/wiki/Firewall_(computing)"
+        },
+        {
+          "x": 40,
+          "y": 80,
+          "type": "switch",
+          "name": "switch_cz",
+          "label": "Switch Central",
+          "hostname": "switch_cz.vega.network.map",
+          "zone": "Central Zone",
+          "size": "L",
+          "url": "http://www.google.com"
+        },
+        {
+          "x": 20,
+          "y": 60,
+          "type": "server",
+          "name": "server_cz_A",
+          "hostname": "server_cz_A.vega.network.map",
+          "label": "Server A",
+          "zone": "Central Zone",
+          "url": "http://www.google.com"
+        },
+        {
+          "x": 25,
+          "y": 60,
+          "type": "server",
+          "name": "server_cz_B",
+          "hostname": "server_cz_B.vega.network.map",
+          "label": "Server B",
+          "zone": "Central Zone",
+          "url": "http://www.google.com"
+        },
+        {
+          "x": 30,
+          "y": 60,
+          "type": "server",
+          "name": "server_cz_C",
+          "hostname": "server_cz_C.vega.network.map",
+          "label": "Server C",
+          "zone": "Central Zone",
+          "url": "http://www.google.com"
+        },
+        {
+          "x": 35,
+          "y": 40,
+          "type": "server",
+          "name": "casb_cz_1",
+          "hostname": "casb_cz_1.vega.network.map",
+          "label": "CASB 1",
+          "zone": "Central Zone",
+          "url": "http://www.google.com"
+        },
+        {
+          "x": 40,
+          "y": 40,
+          "type": "server",
+          "name": "casb_cz_2",
+          "hostname": "casb_cz_2.vega.network.map",
+          "label": "CASB 2",
+          "zone": "Central Zone",
+          "url": "http://www.google.com"
+        },
+        {
+          "x": 45,
+          "y": 40,
+          "type": "server",
+          "name": "casb_cz_3",
+          "hostname": "casb_cz_3.vega.network.map",
+          "label": "CASB 3",
+          "zone": "Central Zone",
+          "url": "http://www.google.com"
+        },
+        {
+          "x": 50,
+          "y": 60,
+          "type": "server",
+          "name": "server_cz_D",
+          "label": "Server D",
+          "hostname": "server_cz_D.vega.network.map",
+          "zone": "Central Zone",
+          "url": "http://www.google.com"
+        },
+        {
+          "x": 70,
+          "y": 80,
+          "type": "firewall",
+          "name": "firewall_dmz_1",
+          "label": "DMZ-IN",
+          "hostname": "firewall_dmz_1.vega.network.map",
+          "zone": "DMZ",
+          "url": "https://en.wikipedia.org/wiki/Firewall_(computing)"
+        },
+        {
+          "x": 80,
+          "y": 80,
+          "type": "switch",
+          "name": "switch_dmz",
+          "label": "Switch DMZ",
+          "hostname": "switch_dmz.vega.network.map",
+          "size": "L",
+          "zone": "DMZ",
+          "url": "http://www.google.com"
+        },
+        {
+          "x": 90,
+          "y": 80,
+          "type": "firewall",
+          "name": "firewall_dmz_2",
+          "label": "DMZ-OUT",
+          "hostname": "firewall_dmz_2.vega.network.map",
+          "zone": "DMZ",
+          "url": "https://en.wikipedia.org/wiki/Firewall_(computing)"
+        },
+        {
+          "x": 70,
+          "y": 50,
+          "type": "server",
+          "name": "antivirus",
+          "hostname": "antivirus.vega.network.map",
+          "label": "Antivirus",
+          "zone": "DMZ",
+          "url": "http://www.google.com"
+        }
+      ],
+      "transform": [
+        {
+          "type": "formula",
+          "as": "label_y",
+          "expr": "datum.y + device_text_margin_top"
+        },
+        {
+          "type": "lookup",
+          "from": "image_type",
+          "key": "type",
+          "fields": ["type"],
+          "as": ["image"]
+        },
+        {
+          "type": "formula",
+          "as": "size",
+          "expr": "datum.size == 'L' ? device_image_size_L : device_image_size"
+        }
+      ]
+    },
+    {
+      "name": "links",
+      "values": [
+        {"start": "user", "end": "firewall_cz_1"},
+        {"start": "firewall_cz_1", "end": "switch_cz"},
+        {"start": "switch_cz", "end": "server_cz_A"},
+        {"start": "switch_cz", "end": "server_cz_B"},
+        {"start": "switch_cz", "end": "server_cz_C"},
+        {"start": "switch_cz", "end": "casb_cz_1"},
+        {"start": "switch_cz", "end": "casb_cz_2"},
+        {"start": "switch_cz", "end": "casb_cz_3"},
+        {"start": "switch_cz", "end": "server_cz_D"},
+        {"start": "switch_cz", "end": "firewall_dmz_1"},
+        {"start": "firewall_dmz_1", "end": "switch_dmz"},
+        {"start": "switch_dmz", "end": "firewall_dmz_2"},
+        {"start": "switch_dmz", "end": "antivirus"}
+      ],
+      "transform": [
+        {
+          "type": "lookup",
+          "from": "devices",
+          "key": "name",
+          "fields": ["start", "end"],
+          "as": ["start_pos", "end_pos"]
+        },
+        {"type": "filter", "expr": "datum.start_pos && datum.end_pos"}
+      ]
+    },
+    {
+      "name": "zones",
+      "source": "devices",
+      "transform": [
+        {"type": "filter", "expr": "datum.zone"},
+        {
+          "type": "aggregate",
+          "groupby": ["zone"],
+          "fields": ["x", "x", "y", "y"],
+          "ops": ["min", "max", "min", "max"],
+          "as": ["min_x", "max_x", "min_y", "max_y"]
+        },
+        {
+          "type": "formula",
+          "as": "min_x",
+          "expr": "datum.min_x - zone_padding_x"
+        },
+        {
+          "type": "formula",
+          "as": "max_x",
+          "expr": "datum.max_x + zone_padding_x"
+        },
+        {
+          "type": "formula",
+          "as": "min_y",
+          "expr": "datum.min_y - zone_padding_y"
+        },
+        {
+          "type": "formula",
+          "as": "max_y",
+          "expr": "datum.max_y + zone_padding_y"
+        }
+      ]
+    },
+    {
+      "name": "health",
+      "url": {
+        "%context%": true,
+        "%timefield%": "@timestamp",
+        "index": "healthcheck-device-test",
+        "body": {"size": 30}
       },
-      {
-        "name": "cpu",
-        "source": "health",
-        "transform": [
-          {
-            "type": "filter",
-            "expr": "datum._source.healthcheck != null && datum._source.healthcheck.cpu != null"
-          },
-          {
-            "type": "filter",
-            "expr": "datum._source.system != null && datum._source.system.cpu != null"
-          },
-          {
-            "type": "formula",
-            "as": "tooltip",
-            "expr": "'cpu : ' + format(datum._source.system.cpu.total.norm.pct.avg * 100, '.0f') + '%'"
-          },
-          {
-            "type": "formula",
-            "as": "square_x",
-            "expr": "datum.device.x - health_rect_left_margin"
-          },
-          {
-            "type": "formula",
-            "as": "square_x2",
-            "expr": "datum.device.x - health_rect_left_margin + health_rect_width"
-          },
-          {
-            "type": "formula",
-            "as": "square_y",
-            "expr": "datum.device.y - health_rect_top_margin - health_rect_padding"
-          },
-          {
-            "type": "formula",
-            "as": "square_y2",
-            "expr": "datum.device.y - health_rect_top_margin - health_rect_height - health_rect_padding"
-          }
-        ]
-      },
-      {
-        "name": "memory",
-        "source": "health",
-        "transform": [
-          {
-            "type": "filter",
-            "expr": "datum._source.healthcheck != null && datum._source.healthcheck.memory != null"
-          },
-          {
-            "type": "filter",
-            "expr": "datum._source.system != null && datum._source.system.memory != null"
-          },
-          {
-            "type": "formula",
-            "as": "tooltip",
-            "expr": "'memory : ' + format(datum._source.system.memory.actual.used.pct.avg * 100, '.0f') + '%'"
-          },
-          {
-            "type": "formula",
-            "as": "square_x",
-            "expr": "datum.device.x - health_rect_left_margin + (health_rect_width + health_rect_padding)"
-          },
-          {
-            "type": "formula",
-            "as": "square_x2",
-            "expr": "datum.device.x - health_rect_left_margin + health_rect_width + health_rect_padding + health_rect_width"
-          },
-          {
-            "type": "formula",
-            "as": "square_y",
-            "expr": "datum.device.y - health_rect_top_margin - health_rect_padding"
-          },
-          {
-            "type": "formula",
-            "as": "square_y2",
-            "expr": "datum.device.y - health_rect_top_margin - health_rect_height - health_rect_padding"
-          }
-        ]
-      },
-      {
-        "name": "storage",
-        "source": "health",
-        "transform": [
-          {
-            "type": "filter",
-            "expr": "datum._source.healthcheck != null && datum._source.healthcheck.storage != null"
-          },
-          {"type": "formula", "as": "tooltip", "expr": "'disque et partitions'"},
-          {
-            "type": "formula",
-            "as": "square_x",
-            "expr": "datum.device.x - health_rect_left_margin + (health_rect_width + health_rect_padding) * 2"
-          },
-          {
-            "type": "formula",
-            "as": "square_x2",
-            "expr": "datum.device.x - health_rect_left_margin + (health_rect_width + health_rect_padding) * 2 + health_rect_width"
-          },
-          {
-            "type": "formula",
-            "as": "square_y",
-            "expr": "datum.device.y - health_rect_top_margin - health_rect_padding"
-          },
-          {
-            "type": "formula",
-            "as": "square_y2",
-            "expr": "datum.device.y - health_rect_top_margin - health_rect_height - health_rect_padding"
-          }
-        ]
+      "format": {"property": "hits.hits"},
+      "transform": [
+        {
+          "type": "formula",
+          "as": "hostname",
+          "expr": "datum._source.host.name"
+        },
+        {
+          "type": "lookup",
+          "from": "devices",
+          "key": "hostname",
+          "fields": ["hostname"],
+          "as": ["device"]
+        },
+        {"type": "filter", "expr": "datum.device"}
+      ]
+    },
+    {
+      "name": "cpu",
+      "source": "health",
+      "transform": [
+        {
+          "type": "filter",
+          "expr": "datum._source.healthcheck != null && datum._source.healthcheck.cpu != null"
+        },
+        {
+          "type": "formula",
+          "as": "tooltip",
+          "expr": "'cpu : ' + format(datum._source.healthcheck.cpu.value * 100, '.0f') + '%'"
+        },
+        {
+          "type": "formula",
+          "as": "square_x",
+          "expr": "datum.device.x - health_rect_left_margin"
+        },
+        {
+          "type": "formula",
+          "as": "square_x2",
+          "expr": "datum.device.x - health_rect_left_margin + health_rect_width"
+        },
+        {
+          "type": "formula",
+          "as": "square_y",
+          "expr": "datum.device.y - health_rect_top_margin - health_rect_padding"
+        },
+        {
+          "type": "formula",
+          "as": "square_y2",
+          "expr": "datum.device.y - health_rect_top_margin - health_rect_height - health_rect_padding"
+        }
+      ]
+    },
+    {
+      "name": "memory",
+      "source": "health",
+      "transform": [
+        {
+          "type": "filter",
+          "expr": "datum._source.healthcheck != null && datum._source.healthcheck.memory != null"
+        },
+        {
+          "type": "formula",
+          "as": "tooltip",
+          "expr": "'memory : ' + format(datum._source.healthcheck.memory.value * 100, '.0f') + '%'"
+        },
+        {
+          "type": "formula",
+          "as": "square_x",
+          "expr": "datum.device.x - health_rect_left_margin + (health_rect_width + health_rect_padding)"
+        },
+        {
+          "type": "formula",
+          "as": "square_x2",
+          "expr": "datum.device.x - health_rect_left_margin + health_rect_width + health_rect_padding + health_rect_width"
+        },
+        {
+          "type": "formula",
+          "as": "square_y",
+          "expr": "datum.device.y - health_rect_top_margin - health_rect_padding"
+        },
+        {
+          "type": "formula",
+          "as": "square_y2",
+          "expr": "datum.device.y - health_rect_top_margin - health_rect_height - health_rect_padding"
+        }
+      ]
+    }
+  ],
+  "scales": [
+    {"name": "xscale", "type": "linear", "domain": [0, 100], "range": "width"},
+    {"name": "yscale", "type": "linear", "domain": [0, 100], "range": "height"}
+  ],
+  "marks": [
+    {
+      "type": "rule",
+      "from": {"data": "gridlines"},
+      "encode": {
+        "enter": {
+          "x": {"scale": "xscale", "value": 100},
+          "x2": {"scale": "xscale", "value": 0},
+          "y": {"scale": "yscale", "field": "value"},
+          "y2": {"scale": "yscale", "field": "value"},
+          "stroke": {"value": "#ccc"},
+          "opacity": {"signal": "grid_opacity"}
+        }
       }
-    ],
-    "scales": [
-      {"name": "xscale", "type": "linear", "domain": [0, 100], "range": "width"},
-      {"name": "yscale", "type": "linear", "domain": [0, 100], "range": "height"}
-    ],
-    "marks": [
-      {
-        "type": "rule",
-        "from": {"data": "gridlines"},
-        "encode": {
-          "enter": {
-            "x": {"scale": "xscale", "value": 100},
-            "x2": {"scale": "xscale", "value": 0},
-            "y": {"scale": "yscale", "field": "value"},
-            "y2": {"scale": "yscale", "field": "value"},
-            "stroke": {"value": "#ccc"},
-            "opacity": {"signal": "grid_opacity"}
-          }
-        }
-      },
-      {
-        "type": "rule",
-        "from": {"data": "gridlines"},
-        "encode": {
-          "enter": {
-            "y": {"scale": "yscale", "value": 100},
-            "y2": {"scale": "yscale", "value": 0},
-            "x": {"scale": "xscale", "field": "value"},
-            "x2": {"scale": "xscale", "field": "value"},
-            "stroke": {"value": "#ccc"},
-            "opacity": {"signal": "grid_opacity"}
-          }
-        }
-      },
-      {
-        "type": "rect",
-        "from": {"data": "zones"},
-        "encode": {
-          "enter": {
-            "x": {"scale": "xscale", "field": "min_x"},
-            "y": {"scale": "yscale", "field": "min_y"},
-            "x2": {"scale": "xscale", "field": "max_x"},
-            "y2": {"scale": "yscale", "field": "max_y"},
-            "fill": {"value": "#e0f7fa"},
-            "fillOpacity": {"value": 0.3},
-            "stroke": {"value": "#D3D3D3"},
-            "cornerRadius": {"value": 20},
-            "strokeWidth": {"value": 1}
-          }
-        }
-      },
-      {
-        "type": "text",
-        "from": {"data": "zones"},
-        "encode": {
-          "enter": {
-            "x": {"scale": "xscale", "signal": "(datum.min_x + datum.max_x) / 2"},
-            "y": {"scale": "yscale", "signal": "datum.max_y + zone_name_margin"},
-            "text": {"field": "zone"},
-            "align": {"value": "center"},
-            "baseline": {"value": "bottom"},
-            "fontSize": {"value": 22},
-            "fill": {"value": "black"}
-          }
-        }
-      },
-      {
-        "type": "rule",
-        "from": {"data": "links"},
-        "encode": {
-          "enter": {
-            "x": {"scale": "xscale", "field": "start_pos.x"},
-            "y": {"scale": "yscale", "field": "start_pos.y"},
-            "x2": {"scale": "xscale", "field": "end_pos.x"},
-            "y2": {"scale": "yscale", "field": "end_pos.y"},
-            "stroke": {"value": "black"},
-            "strokeDash": {"value": [4, 4]},
-            "strokeWidth": {"value": 2},
-            "opacity": {"value": 0.2}
-          }
-        }
-      },
-      {
-        "type": "image",
-        "from": {"data": "devices"},
-        "encode": {
-          "enter": {
-            "url": {"field": "image.url"},
-            "x": {"scale": "xscale", "field": "x"},
-            "y": {"scale": "yscale", "field": "y"},
-            "opacity": {"value": 1},
-            "width": {"field": "size"},
-            "height": {"field": "size"},
-            "align": {"value": "center"},
-            "baseline": {"value": "middle"},
-            "href": {"field": "url"},
-            "tooltip": {"field": "hostname"},
-            "cursor": {"signal": "datum.url ? 'pointer' : 'arrow'"}
-          }
-        }
-      },
-      {
-        "type": "text",
-        "from": {"data": "devices"},
-        "encode": {
-          "enter": {
-            "text": {"field": "label"},
-            "x": {"scale": "xscale", "field": "x"},
-            "y": {"scale": "yscale", "field": "label_y"},
-            "opacity": {"value": 0.7},
-            "width": {"signal": "device_image_size"},
-            "height": {"signal": "device_image_size"},
-            "align": {"value": "center"}
-          }
-        }
-      },
-      {
-        "type": "rect",
-        "from": {"data": "cpu"},
-        "encode": {
-          "enter": {
-            "x": {"scale": "xscale", "field": "square_x"},
-            "y": {"scale": "yscale", "field": "square_y"},
-            "x2": {"scale": "xscale", "field": "square_x2"},
-            "y2": {"scale": "yscale", "field": "square_y2"},
-            "fill": {"field": "_source.healthcheck.cpu.status"},
-            "tooltip": {"field": "tooltip"}
-          }
-        }
-      },
-      {
-        "type": "rect",
-        "from": {"data": "memory"},
-        "encode": {
-          "enter": {
-            "x": {"scale": "xscale", "field": "square_x"},
-            "y": {"scale": "yscale", "field": "square_y"},
-            "x2": {"scale": "xscale", "field": "square_x2"},
-            "y2": {"scale": "yscale", "field": "square_y2"},
-            "fill": {"field": "_source.healthcheck.memory.status"},
-            "tooltip": {"field": "tooltip"}
-          }
-        }
-      },
-      {
-        "type": "rect",
-        "from": {"data": "storage"},
-        "encode": {
-          "enter": {
-            "x": {"scale": "xscale", "field": "square_x"},
-            "y": {"scale": "yscale", "field": "square_y"},
-            "x2": {"scale": "xscale", "field": "square_x2"},
-            "y2": {"scale": "yscale", "field": "square_y2"},
-            "fill": {"field": "_source.healthcheck.storage.status"},
-            "tooltip": {"field": "tooltip"}
-          }
+    },
+    {
+      "type": "rule",
+      "from": {"data": "gridlines"},
+      "encode": {
+        "enter": {
+          "y": {"scale": "yscale", "value": 100},
+          "y2": {"scale": "yscale", "value": 0},
+          "x": {"scale": "xscale", "field": "value"},
+          "x2": {"scale": "xscale", "field": "value"},
+          "stroke": {"value": "#ccc"},
+          "opacity": {"signal": "grid_opacity"}
         }
       }
-    ]
-  }
+    },
+    {
+      "type": "rect",
+      "from": {"data": "zones"},
+      "encode": {
+        "enter": {
+          "x": {"scale": "xscale", "field": "min_x"},
+          "y": {"scale": "yscale", "field": "min_y"},
+          "x2": {"scale": "xscale", "field": "max_x"},
+          "y2": {"scale": "yscale", "field": "max_y"},
+          "fill": {"value": "#e0f7fa"},
+          "fillOpacity": {"value": 0.3},
+          "stroke": {"value": "#D3D3D3"},
+          "cornerRadius": {"value": 20},
+          "strokeWidth": {"value": 1}
+        }
+      }
+    },
+    {
+      "type": "text",
+      "from": {"data": "zones"},
+      "encode": {
+        "enter": {
+          "x": {"scale": "xscale", "signal": "(datum.min_x + datum.max_x) / 2"},
+          "y": {"scale": "yscale", "signal": "datum.max_y + zone_name_margin"},
+          "text": {"field": "zone"},
+          "align": {"value": "center"},
+          "baseline": {"value": "bottom"},
+          "fontSize": {"value": 22},
+          "fill": {"value": "black"}
+        }
+      }
+    },
+    {
+      "type": "rule",
+      "from": {"data": "links"},
+      "encode": {
+        "enter": {
+          "x": {"scale": "xscale", "field": "start_pos.x"},
+          "y": {"scale": "yscale", "field": "start_pos.y"},
+          "x2": {"scale": "xscale", "field": "end_pos.x"},
+          "y2": {"scale": "yscale", "field": "end_pos.y"},
+          "stroke": {"value": "black"},
+          "strokeDash": {"value": [4, 4]},
+          "strokeWidth": {"value": 2},
+          "opacity": {"value": 0.2}
+        }
+      }
+    },
+    {
+      "type": "image",
+      "from": {"data": "devices"},
+      "encode": {
+        "enter": {
+          "url": {"field": "image.url"},
+          "x": {"scale": "xscale", "field": "x"},
+          "y": {"scale": "yscale", "field": "y"},
+          "opacity": {"value": 1},
+          "width": {"field": "size"},
+          "height": {"field": "size"},
+          "align": {"value": "center"},
+          "baseline": {"value": "middle"},
+          "href": {"field": "url"},
+          "tooltip": {"field": "hostname"},
+          "cursor": {"signal": "datum.url ? 'pointer' : 'arrow'"}
+        }
+      }
+    },
+    {
+      "type": "text",
+      "from": {"data": "devices"},
+      "encode": {
+        "enter": {
+          "text": {"field": "label"},
+          "x": {"scale": "xscale", "field": "x"},
+          "y": {"scale": "yscale", "field": "label_y"},
+          "opacity": {"value": 0.7},
+          "width": {"signal": "device_image_size"},
+          "height": {"signal": "device_image_size"},
+          "align": {"value": "center"}
+        }
+      }
+    },
+    {
+      "type": "rect",
+      "from": {"data": "cpu"},
+      "encode": {
+        "enter": {
+          "x": {"scale": "xscale", "field": "square_x"},
+          "y": {"scale": "yscale", "field": "square_y"},
+          "x2": {"scale": "xscale", "field": "square_x2"},
+          "y2": {"scale": "yscale", "field": "square_y2"},
+          "fill": {"field": "_source.healthcheck.cpu.status"},
+          "tooltip": {"field": "tooltip"}
+        }
+      }
+    },
+    {
+      "type": "rect",
+      "from": {"data": "memory"},
+      "encode": {
+        "enter": {
+          "x": {"scale": "xscale", "field": "square_x"},
+          "y": {"scale": "yscale", "field": "square_y"},
+          "x2": {"scale": "xscale", "field": "square_x2"},
+          "y2": {"scale": "yscale", "field": "square_y2"},
+          "fill": {"field": "_source.healthcheck.memory.status"},
+          "tooltip": {"field": "tooltip"}
+        }
+      }
+    }
+  ]
+}

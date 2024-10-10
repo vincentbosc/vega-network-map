@@ -6,6 +6,12 @@ This project leverages Vega to build a dynamic network map visualization within 
 
 ![network map image example](<img/example.png>)
 
+## Prerequisites
+
+Put vis_type_vega.enableExternalUrls: true in kibana.yml
+Activate state:storeInSessionStorage in Kibana advanced settings.
+
+
 ## JSON Breakdown
 
 ### Signals
