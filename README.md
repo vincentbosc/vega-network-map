@@ -8,9 +8,13 @@ This project leverages Vega to build a dynamic network map visualization within 
 
 ## Prerequisites
 
-Put vis_type_vega.enableExternalUrls: true in kibana.yml
-Activate state:storeInSessionStorage in Kibana advanced settings.
+To allow external URLs in **Vega visualizations**, add the following setting to your `kibana.yml` file:
 
+```yaml
+vis_type_vega.enableExternalUrls: true
+```
+
+Activate state:storeInSessionStorage in Kibana advanced settings.
 
 ## JSON Breakdown
 
