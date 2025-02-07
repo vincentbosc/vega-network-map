@@ -239,6 +239,69 @@
       ]
     },
     {
+      "name": "network",
+      "url": {
+        "index": "healthcheck-network-test",
+        "body": {
+          "size": 50
+        }
+      },
+      "format": {"property": "hits.hits"},
+      "transform": [
+        {
+          "type": "formula",
+          "as": "from",
+          "expr": "datum._source.from"
+        },
+        {
+          "type": "formula",
+          "as": "to",
+          "expr": "datum._source.to"
+        },
+        {
+          "type": "lookup",
+          "from": "devices",
+          "key": "name",
+          "fields": ["from", "to"],
+          "as": ["start_pos", "end_pos"]
+        },
+        {
+          "type": "filter",
+          "expr": "datum.start_pos && datum.end_pos"
+        },
+        {
+          "type": "formula",
+          "as": "x_from",
+          "expr": "datum.start_pos.x"
+        },
+        {
+          "type": "formula",
+          "as": "y_from",
+          "expr": "datum.start_pos.y"
+        },
+        {
+          "type": "formula",
+          "as": "x_to",
+          "expr": "(datum.start_pos.x + datum.end_pos.x)/2"
+        },
+        {
+          "type": "formula",
+          "as": "y_to",
+          "expr": "(datum.start_pos.y + datum.end_pos.y)/2"
+        },
+        {
+          "type": "formula",
+          "as": "tooltip",
+          "expr": "datum._source.bits_per_second_label"
+        },
+        {
+          "type": "formula",
+          "as": "bps",
+          "expr": "datum._source.bits_per_second"
+        }
+      ]
+    },
+    {
       "name": "zones",
       "source": "devices",
       "transform": [
@@ -370,7 +433,16 @@
   ],
   "scales": [
     {"name": "xscale", "type": "linear", "domain": [0, 100], "range": "width"},
-    {"name": "yscale", "type": "linear", "domain": [0, 100], "range": "height"}
+    {"name": "yscale", "type": "linear", "domain": [0, 100], "range": "height"},
+    {"name": "network_scale", "type": "log", "domain": [1, 20000000], "range": [0,10], "base": 10},
+    {"name": "network_color_scale", "type": "log", "domain": [1, 20000000], "range": {"scheme": "turbo"}, "base": 10}
+  ],
+  "legends": [
+    {
+      "fill": "network_color_scale",
+      "title": "Throughput (bps)",
+      "orient": "right"
+    }
   ],
   "marks": [
     {
@@ -435,17 +507,18 @@
     },
     {
       "type": "rule",
-      "from": {"data": "links"},
+      "from": {"data": "network"},
       "encode": {
         "enter": {
-          "x": {"scale": "xscale", "field": "start_pos.x"},
-          "y": {"scale": "yscale", "field": "start_pos.y"},
-          "x2": {"scale": "xscale", "field": "end_pos.x"},
-          "y2": {"scale": "yscale", "field": "end_pos.y"},
-          "stroke": {"value": "black"},
+          "x": {"scale": "xscale", "field": "x_from"},
+          "y": {"scale": "yscale", "field": "y_from"},
+          "x2": {"scale": "xscale", "field": "x_to"},
+          "y2": {"scale": "yscale", "field": "y_to"},
+          "stroke": {"scale": "network_color_scale", "field": "bps"},
           "strokeDash": {"value": [4, 4]},
-          "strokeWidth": {"value": 2},
-          "opacity": {"value": 0.2}
+          "strokeWidth": {"scale": "network_scale", "field": "bps"},
+          "tooltip": {"field": "tooltip"},
+          "opacity": {"value": 0.4}
         }
       }
     },
